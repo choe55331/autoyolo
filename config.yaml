@@ -22,8 +22,8 @@ detection:
 training:
   # Number of epochs
   epochs: 100
-  # Batch size
-  batch_size: 16
+  # Batch size (CPU에서는 8 권장, GPU에서는 16)
+  batch_size: 8
   # Image size
   img_size: 640
   # Learning rate
@@ -31,9 +31,9 @@ training:
   # Optimizer (SGD, Adam, AdamW)
   optimizer: Adam
   # Device (cpu, 0, 0,1,2,3)
-  device: 0
-  # Number of workers for data loading
-  workers: 8
+  device: cpu
+  # Number of workers for data loading (CPU에서는 4 권장)
+  workers: 4
   # Enable mixed precision training
   amp: true
   # Save model every N epochs
