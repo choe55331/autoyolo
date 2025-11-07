@@ -2,6 +2,28 @@
 
 YOLO12를 사용한 실시간 Rune 인식 프로그램입니다. Roboflow와 통합되어 쉽게 데이터셋을 다운로드하고 학습할 수 있습니다.
 
+## ⚡ 빠른 시작 (3분이면 끝!)
+
+**처음 사용하시나요? 이 방법이 가장 쉬워요!** 👇
+
+```bash
+# 1. 의존성 설치
+pip install -r requirements.txt
+
+# 2. 데이터셋 다운로드 (URL만 붙여넣으면 끝!)
+python easy_download.py "https://universe.roboflow.com/workspace/project/version"
+
+# 3. 학습 시작
+python train.py --data data/프로젝트명/data.yaml --epochs 50
+
+# 4. 테스트
+python detect_rune.py --source test.jpg --model models/rune_detection/weights/best.pt
+```
+
+더 자세한 설명은 **[간단_사용법.md](간단_사용법.md)** 파일을 참고하세요!
+
+---
+
 ## 🚀 주요 기능
 
 - **YOLO12 모델**: 최신 YOLOv12 아키텍처 사용
