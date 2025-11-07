@@ -1,0 +1,76 @@
+# YOLO12 Rune Detection Configuration
+
+# Model settings
+model:
+  # Model architecture: yolo12n (nano), yolo12s (small), yolo12m (medium), yolo12l (large), yolo12x (xlarge)
+  architecture: yolo12n
+  # Path to pretrained weights (set to null to use default pretrained weights)
+  pretrained: null
+  # Path to custom trained model
+  custom_model: models/best.pt
+
+# Detection settings
+detection:
+  # Confidence threshold (0.0 - 1.0)
+  conf_threshold: 0.25
+  # IoU threshold for NMS (0.0 - 1.0)
+  iou_threshold: 0.45
+  # Maximum number of detections per image
+  max_det: 300
+
+# Training settings
+training:
+  # Number of epochs
+  epochs: 100
+  # Batch size
+  batch_size: 16
+  # Image size
+  img_size: 640
+  # Learning rate
+  learning_rate: 0.01
+  # Optimizer (SGD, Adam, AdamW)
+  optimizer: Adam
+  # Device (cpu, 0, 0,1,2,3)
+  device: 0
+  # Number of workers for data loading
+  workers: 8
+  # Enable mixed precision training
+  amp: true
+  # Save model every N epochs
+  save_period: 10
+  # Patience for early stopping
+  patience: 50
+
+# Dataset settings
+dataset:
+  # Path to dataset YAML file
+  data_yaml: data/data.yaml
+  # Train/Val/Test split ratios
+  split_ratio:
+    train: 0.7
+    val: 0.2
+    test: 0.1
+
+# Roboflow settings
+roboflow:
+  # API key (set via environment variable ROBOFLOW_API_KEY)
+  api_key: null
+  # Workspace name
+  workspace: your-workspace
+  # Project name
+  project: rune-detection
+  # Dataset version
+  version: 1
+
+# Output settings
+output:
+  # Directory for saving results
+  output_dir: output
+  # Directory for saving models
+  model_dir: models
+  # Save visualizations
+  save_viz: true
+  # Save predicted labels
+  save_txt: true
+  # Save confidence scores
+  save_conf: true
